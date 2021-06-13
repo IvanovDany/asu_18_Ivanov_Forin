@@ -12,6 +12,14 @@
 	<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 	<script>
 		var x = document.getElementById('output');
+		
+		function getLocation(){
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition();
+			}
+			else { x.innerHTML = "У браузера нет доступа к вашему местоположению.";
+			     }
+		}
 	</script>
 </body>
 </html>
