@@ -15,10 +15,15 @@
 		
 		function getLocation(){
 			if(navigator.geolocation){
-				navigator.geolocation.getCurrentPosition();
+				navigator.geolocation.getCurrentPosition(showPosition);
 			}
 			else { x.innerHTML = "У браузера нет доступа к вашему местоположению.";
 			     }
+		}
+		function showPosition(position){
+			x.innerHTML = "Широта: " + position.coords.latitude;
+			x.innerHTML += "</br>"
+			x.innerHTML += "Долгота: " + position.coords.longitude;
 		}
 	</script>
 </body>
