@@ -2,28 +2,35 @@
 <html>
 <head>
 	<title>Геолокация</title>
+	<style type="text/css">
+		body {
+			padding: 50px;
+		}
+
+		.btn {
+			margin-bottom: 20px;
+		}
+	</style>
 </head>
 <body>
-	<h1>Узнать свои координаты?</h1>
-	<button onClick="getLocation()">Узнать!</button>
+	<h1>Узнать свои географические координаты?</h1>
+	<button class="btn" onClick="getLocation()">Узнать</button>
 	
 	<div id="output"></div>
 	
 	<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 	<script>
-		var x = document.getElementById('output');
+		var x = $('#output');
 		
 		function getLocation(){
 			if(navigator.geolocation){
 				navigator.geolocation.getCurrentPosition(showPosition);
 			}
-			else { x.innerHTML = "У браузера нет доступа к вашему местоположению.";
+			else { x.html('У браузера нет доступа к вашему местоположению.');
 			     }
 		}
 		function showPosition(position){
-			x.innerHTML = "Широта: " + position.coords.latitude;
-			x.innerHTML += "</br>"
-			x.innerHTML += "Долгота: " + position.coords.longitude;
+			x.html('Широта: ' + position.coords.latitude + '</br>' + 'Долгота: ' + position.coords.longitude);
 		}
 	</script>
 </body>
